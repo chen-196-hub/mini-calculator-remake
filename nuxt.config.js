@@ -66,10 +66,10 @@ export default {
   build: {},
 
   router: {
-    base: '/mini-calculator-remake/'
+    base: '/mini-calculator-remake/',
   },
 
   generate: {
-    dir: 'docs'
+    dir: 'docs',
   },
 }
