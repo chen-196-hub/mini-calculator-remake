@@ -6,13 +6,13 @@
         <VuetifyLogo />
       </v-card>
       <v-card>
-        {{hello}}
+        {{ hello }}
       </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
-  const hello = ref('hello')
+import { ref } from 'vue'
+const hello = ref('hello')
 </script>
