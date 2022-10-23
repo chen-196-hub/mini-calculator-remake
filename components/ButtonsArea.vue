@@ -2,8 +2,8 @@
   <v-card class="text-center">
     <v-row v-for="r in keyContent" :key="r" no-gutters>
       <v-col v-for="n in r" :key="n" :cols="n === '0' ? 6 : 3">
-        <v-card class="pa-2" tile>
-          <v-btn x-large rounded>
+        <v-card class="py-2 px-5" tile>
+          <v-btn x-large rounded width="100%">
             {{ n }}
           </v-btn>
         </v-card>
