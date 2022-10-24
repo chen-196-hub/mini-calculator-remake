@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 interface Props {
-  show: string;
+  show: string
 }
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 </script>
