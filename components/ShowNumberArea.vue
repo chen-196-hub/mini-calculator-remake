@@ -1,10 +1,12 @@
 <template>
   <v-card class="text-center py-3 my-3">
-    {{ hello }}
+    {{ props.show || 0 }}
   </v-card>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const hello = ref('hello')
+interface Props {
+  show: string
+}
+const props = defineProps<Props>()
 </script>
