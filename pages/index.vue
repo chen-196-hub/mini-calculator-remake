@@ -36,24 +36,41 @@ const numbersKeys = ref([
   '9',
   'ten',
 ])
-// const calcs = ref<string[]>([
-//   'ac',
-//   'plu-min',
-//   'percent',
-//   'divide',
-//   'times',
-//   'minus',
-//   'plus',
-//   'equal',
-// ])
+
+const calcs = ref<string[]>([
+  'ac',
+  'plu-min',
+  'percent',
+  'divide',
+  'times',
+  'minus',
+  'plus',
+  'equal',
+])
+
 const handleClick = (e: string = '0') => {
-  if (e === 'ac') {
-    showNumber.calc = []
+  if (calcs.value.includes(e)) {
+    handleCalc(e)
   }
   if (numbersKeys.value.includes(e)) {
-    const num: string = e === 'ten' ? '.' : e
-    showNumber.calc.push(num)
+    handleNumber(e)
   }
   showNumber.show = showNumber.calc.join('')
+}
+
+const handleCalc = ( key: string ) : void => {
+  switch (key) {
+    case "ac":
+      showNumber.calc = []
+      break;
+  
+    default:
+      break;
+  }
+}
+
+const handleNumber = ( key : string ) :void => {
+  const num: string = key === 'ten' ? '.' : key
+  showNumber.calc.push(num)
 }
 </script>
