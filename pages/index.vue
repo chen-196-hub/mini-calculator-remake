@@ -58,18 +58,18 @@ const handleClick = (e: string = '0') => {
   showNumber.show = showNumber.calc.join('')
 }
 
-const handleCalc = ( key: string ) : void => {
+const handleCalc = (key: string): void => {
   switch (key) {
-    case "ac":
+    case 'ac':
       showNumber.calc = []
-      break;
-  
+      break
+
     default:
-      break;
+      break
   }
 }
 
-const handleNumber = ( key : string ) :void => {
+const handleNumber = (key: string): void => {
   const num: string = key === 'ten' ? '.' : key
   showNumber.calc.push(num)
 }
