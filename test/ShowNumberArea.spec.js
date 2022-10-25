@@ -1,14 +1,7 @@
 import Vuetify from 'vuetify'
 // Utilities
-import {
-  createLocalVue,
-  mount,
-} from '@vue/test-utils'
+import { createLocalVue, mount } from '@vue/test-utils'
 import ShowNumberArea from '@/components/ShowNumberArea.vue'
-
-
-
-
 
 const localVue = createLocalVue()
 

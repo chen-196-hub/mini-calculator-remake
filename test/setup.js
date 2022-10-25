@@ -3,4 +3,4 @@ import Vuetify from 'vuetify'
 
 // Use Vuetify
 Vue.use(Vuetify)
-Vue.config.productionTip = false;
+Vue.config.productionTip = false

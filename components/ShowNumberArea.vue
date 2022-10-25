@@ -1,6 +1,6 @@
 <template>
   <v-card class="text-center py-3 my-3">
-    {{ number || "0" }}
+    {{ number || '0' }}
   </v-card>
 </template>
 
@@ -8,7 +8,8 @@
 interface Props {
   number: string
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
-  number : '0',
+  number: '0',
 })
 </script>
