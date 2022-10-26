@@ -5,7 +5,7 @@ import ShowNumberArea from '@/components/ShowNumberArea.vue'
 
 const localVue = createLocalVue()
 
-describe('CustomNavigationDrawer.vue', () => {
+describe('ShowNumberArea.vue', () => {
   let vuetify
 
   beforeEach(() => {
