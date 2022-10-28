@@ -12,7 +12,7 @@ describe('ShowNumberArea.vue', () => {
     vuetify = new Vuetify()
   })
 
-  const mountFunction = options => {
+  const mountFunction = (options) => {
     return mount(ShowNumberArea, {
       localVue,
       vuetify,
