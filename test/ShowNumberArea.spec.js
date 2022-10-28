@@ -12,12 +12,19 @@ describe('ShowNumberArea.vue', () => {
     vuetify = new Vuetify()
   })
 
-  it('should have a custom title and match snapshot', () => {
-    const wrapper = mount(ShowNumberArea, {
+  const mountFunction = (options) => {
+    return mount(ShowNumberArea, {
       localVue,
       vuetify,
+      ...options,
+    })
+  }
+
+  it('should have a custom title and match snapshot', () => {
+    const wrapper = mountFunction({
+      propsData: { number: '100' },
     })
 
-    expect(wrapper.text()).toBe('0')
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })
