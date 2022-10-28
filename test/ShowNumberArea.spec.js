@@ -22,7 +22,7 @@ describe('ShowNumberArea.vue', () => {
 
   it('should have a custom title and match snapshot', () => {
     const wrapper = mountFunction({
-      propsData: { title: '100' },
+      propsData: { number: '100' },
     })
 
     expect(wrapper.html()).toMatchSnapshot()
