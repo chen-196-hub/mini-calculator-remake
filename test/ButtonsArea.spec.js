@@ -27,7 +27,6 @@ describe('ButtonsArea.vue', () => {
   })
 
   // it('should been called emit', () => {
-    
-  // })
 
+  // })
 })
