@@ -1,6 +1,6 @@
 <template>
   <v-card class="text-center py-3 my-3">
-    <v-card-title> {{ number }} </v-card-title>
+    <v-card-title class="justify-end"> {{ number }} </v-card-title>
   </v-card>
 </template>
 

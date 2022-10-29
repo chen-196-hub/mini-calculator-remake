@@ -18,9 +18,9 @@ interface ShowNumber {
 }
 const showNumber = reactive<ShowNumber>({
   show: '0',
-  calc: [],
+  calc: ['0'],
 })
-// const firstNumber = ref(0)
+const firstNumber = ref(0)
 // const secondNumber = ref(0)
 // const processKeys = ref()
 const numbersKeys = ref([
@@ -61,9 +61,31 @@ const handleClick = (e: string = '0') => {
 const handleCalc = (key: string): void => {
   switch (key) {
     case 'ac':
-      showNumber.calc = []
+      showNumber.calc = ['0']
       break
-
+    case 'plu-min':
+      showNumber.calc[0] !== '-'
+        ? showNumber.calc.unshift('-')
+        : showNumber.calc.shift()
+      break
+    case 'percent':
+      break
+    case 'divide':
+      break
+    case 'times':
+      break
+    case 'minus':
+      break
+    case 'plus':
+      if (firstNumber.value === 0) {
+        firstNumber.value = Number(showNumber.show)
+      } else {
+        // firstNumber.value + Number(showNumber.show)
+      }
+      // console.log(firstNumber.value)
+      break
+    case 'equal':
+      break
     default:
       break
   }
@@ -71,6 +93,13 @@ const handleCalc = (key: string): void => {
 
 const handleNumber = (key: string): void => {
   const num: string = key === 'ten' ? '.' : key
+  if (
+    showNumber.calc[0] === '0' &&
+    showNumber.calc.length === 1 &&
+    num !== '.'
+  ) {
+    showNumber.calc.shift()
+  }
   showNumber.calc.push(num)
 }
 </script>
