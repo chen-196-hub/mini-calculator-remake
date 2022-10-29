@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ShowNumberArea.vue should have a custom title and match snapshot 1`] = `
+exports[`ShowNumberArea.vue should have a custom number and match snapshot 1`] = `
 "<div class="text-center py-3 my-3 v-card v-sheet theme--light" number="100">
   <div class="v-card__title"> </div>
 </div>"

@@ -1,11 +1,11 @@
 import Vuetify from 'vuetify'
 // Utilities
 import { createLocalVue, mount } from '@vue/test-utils'
-import ShowNumberArea from '@/components/ShowNumberArea.vue'
+import ButtonsArea from '@/components/ButtonsArea.vue'
 
 const localVue = createLocalVue()
 
-describe('ShowNumberArea.vue', () => {
+describe('ButtonsArea.vue', () => {
   let vuetify
 
   beforeEach(() => {
@@ -13,18 +13,21 @@ describe('ShowNumberArea.vue', () => {
   })
 
   const mountFunction = (options) => {
-    return mount(ShowNumberArea, {
+    return mount(ButtonsArea, {
       localVue,
       vuetify,
       ...options,
     })
   }
 
-  it('should have a custom number and match snapshot', () => {
-    const wrapper = mountFunction({
-      propsData: { number: '100' },
-    })
+  it('should match snapshot', () => {
+    const wrapper = mountFunction()
 
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  // it('should been called emit', () => {
+    
+  // })
+
 })
