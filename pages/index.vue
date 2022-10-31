@@ -81,9 +81,7 @@ const calcs = ref<string[]>([
 ])
 
 const handleClick = (e: string = '0') => {
-  if (calcs.value.includes(e)) {
-    handleCalc(e)
-  }
+  if (calcs.value.includes(e)) handleCalc(e)
   if (numbersKeys.value.includes(e)) {
     handleNumber(e)
     showNumber.show = showNumber.calc.join('')
@@ -94,12 +92,21 @@ const handleCalc = (key: string): void => {
   switch (key) {
     case 'ac':
       showNumber.calc = ['0']
+      calcStatus.calcType = ''
+      firstNumber.value = 0
       showNumber.show = showNumber.calc.join('')
       break
     case 'plu-min':
-      showNumber.calc[0] !== '-'
-        ? showNumber.calc.unshift('-')
-        : showNumber.calc.shift()
+      if (showNumber.show === '0') {
+        showNumber.calc[0] !== '-'
+          ? showNumber.calc.unshift('-')
+          : showNumber.calc.shift()
+        showNumber.show = showNumber.calc.join('')
+      } else {
+        const ary: string[] = showNumber.show.split('')
+        ary[0] !== '-' ? ary.unshift('-') : ary.shift()
+        showNumber.show = ary.join('')
+      }
       break
     case 'percent':
       break
@@ -138,6 +145,8 @@ const handleCalc = (key: string): void => {
         calcStatus.calcType
       )
       showNumber.show = String(answer)
+      calcStatus.calcType = ''
+      firstNumber.value = 0
       break
     }
     default:
