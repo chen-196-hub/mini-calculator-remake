@@ -97,6 +97,11 @@ const handleCalc = (key: string): void => {
       showNumber.show = showNumber.calc.join('')
       break
     case 'plu-min':
+      if (calcStatus.isCalc) {
+        showNumber.calc = ['0']
+        showNumber.show = '0'
+        calcStatus.isCalc = false
+      }
       if (showNumber.show === '0') {
         showNumber.calc[0] !== '-'
           ? showNumber.calc.unshift('-')
@@ -112,31 +117,19 @@ const handleCalc = (key: string): void => {
       break
     case 'divide':
       calcStatus.calcType = Calc.divide
-      if (firstNumber.value === 0) {
-        firstNumber.value = Number(showNumber.show)
-      }
-      calcStatus.isCalc = true
+     saveFirstNumber()
       break
     case 'times':
       calcStatus.calcType = Calc.times
-      if (firstNumber.value === 0) {
-        firstNumber.value = Number(showNumber.show)
-      }
-      calcStatus.isCalc = true
+     saveFirstNumber()
       break
     case 'minus':
       calcStatus.calcType = Calc.minus
-      if (firstNumber.value === 0) {
-        firstNumber.value = Number(showNumber.show)
-      }
-      calcStatus.isCalc = true
+      saveFirstNumber()
       break
     case 'plus':
       calcStatus.calcType = Calc.plus
-      if (firstNumber.value === 0) {
-        firstNumber.value = Number(showNumber.show)
-      }
-      calcStatus.isCalc = true
+      saveFirstNumber()
       break
     case 'equal': {
       const answer = calc(
@@ -152,6 +145,13 @@ const handleCalc = (key: string): void => {
     default:
       break
   }
+}
+
+const saveFirstNumber = () : void => {
+   if (firstNumber.value === 0) {
+        firstNumber.value = Number(showNumber.show)
+      }
+    calcStatus.isCalc = true
 }
 
 const handleNumber = (key: string): void => {
