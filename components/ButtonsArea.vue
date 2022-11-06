@@ -3,7 +3,13 @@
     <v-row v-for="r in keyContent" :key="r.key" no-gutters>
       <v-col v-for="n in r" :key="n.key" :cols="n.key === '0' ? 6 : 3">
         <v-card class="py-2 px-5" tile>
-          <v-btn x-large rounded width="100%" @click="$emit('onClick', n.key)">
+          <v-btn
+            x-large
+            rounded
+            width="100%"
+            :disabled="n.key === Calc[calcStatus.calcType] && calcStatus.isCalc"
+            @click="$emit('onClick', n.key)"
+          >
             {{ n.value }}
           </v-btn>
         </v-card>
@@ -14,10 +20,18 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Calc } from '@/enum/calc'
+
 interface KeyContent {
   key: string
   value: string
 }
+interface Props {
+  calcStatus?: object
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = defineProps<Props>()
 
 const keyContent = ref<KeyContent[][]>([
   [

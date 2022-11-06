@@ -3,7 +3,7 @@
     <v-col cols="12" sm="8" md="6">
       <v-container>
         <ShowNumberArea :number="showNumber.show" />
-        <ButtonsArea @onClick="handleClick" />
+        <ButtonsArea :calc-status="calcStatus" @onClick="handleClick" />
       </v-container>
     </v-col>
   </v-row>
@@ -13,31 +13,16 @@
 import { ref, reactive } from 'vue'
 // eslint-disable-next-line import/no-named-as-default
 import Big from 'big.js'
+import { Calc } from '@/enum/calc'
 
 interface ShowNumber {
   show: string
   calc: string[]
 }
-// interface calcFlag {
-//   ac: boolean,
-//   pluMin: boolean
-//   percent: boolean
-//   divide: boolean
-//   times: boolean
-//   minus: boolean
-//   plus: boolean
-//   equal: boolean
-// }
 
 interface CalcStatus {
   isCalc: boolean
   calcType: string
-}
-enum Calc {
-  plus = 'plus',
-  minus = 'minus',
-  times = 'times',
-  divide = 'divide',
 }
 const showNumber = reactive<ShowNumber>({
   show: '0',
@@ -58,17 +43,6 @@ const numbersKeys = ref([
   'ten',
 ])
 
-// const calcFlag = reactive<calcFlag>({
-//   ac: false,
-//   pluMin: false,
-//   percent: false,
-//   divide: false,
-//   times: false,
-//   minus: false,
-//   plus: false,
-//   equal: false,
-// })
-// const isCalc = ref(false)
 const calcStatus = reactive<CalcStatus>({ isCalc: false, calcType: '' })
 
 const calcs = ref<string[]>([
