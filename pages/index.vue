@@ -11,6 +11,8 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+// eslint-disable-next-line import/no-named-as-default
+import Big from 'big.js'
 
 interface ShowNumber {
   show: string
@@ -183,13 +185,13 @@ const calc = (
 ): number => {
   switch (calcType) {
     case 'plus':
-      return firstNumber + secondNumber
+      return Number(Big(firstNumber).plus(secondNumber))
     case 'minus':
-      return firstNumber - secondNumber
+      return Number(Big(firstNumber).minus(secondNumber))
     case 'times':
-      return firstNumber * secondNumber
+      return Number(Big(firstNumber).times(secondNumber))
     case 'divide':
-      return firstNumber / secondNumber
+      return Number(Big(firstNumber).div(secondNumber))
     default:
       return 0
   }
