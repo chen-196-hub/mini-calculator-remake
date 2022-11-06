@@ -117,11 +117,11 @@ const handleCalc = (key: string): void => {
       break
     case 'divide':
       calcStatus.calcType = Calc.divide
-     saveFirstNumber()
+      saveFirstNumber()
       break
     case 'times':
       calcStatus.calcType = Calc.times
-     saveFirstNumber()
+      saveFirstNumber()
       break
     case 'minus':
       calcStatus.calcType = Calc.minus
@@ -147,11 +147,11 @@ const handleCalc = (key: string): void => {
   }
 }
 
-const saveFirstNumber = () : void => {
-   if (firstNumber.value === 0) {
-        firstNumber.value = Number(showNumber.show)
-      }
-    calcStatus.isCalc = true
+const saveFirstNumber = (): void => {
+  if (firstNumber.value === 0) {
+    firstNumber.value = Number(showNumber.show)
+  }
+  calcStatus.isCalc = true
 }
 
 const handleNumber = (key: string): void => {
@@ -166,6 +166,12 @@ const handleNumber = (key: string): void => {
     num !== '.'
   ) {
     showNumber.calc.shift()
+  } else if (
+    showNumber.calc[1] === '0' &&
+    showNumber.calc[0] === '-' &&
+    num !== '.'
+  ) {
+    showNumber.calc.splice(1, 1)
   }
   showNumber.calc.push(num)
 }
