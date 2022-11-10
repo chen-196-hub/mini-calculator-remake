@@ -11,8 +11,8 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-// eslint-disable-next-line import/no-named-as-default
-import Big from 'big.js'
+
+import _ from 'big.js'
 import { Calc } from '@/enum/calc'
 
 interface ShowNumber {
@@ -90,6 +90,9 @@ const handleCalc = (key: string): void => {
       }
       break
     case 'percent':
+      showNumber.show = String(_(Number(showNumber.show)).div(100))
+      showNumber.calc = showNumber.show.split('')
+      calcStatus.isCalc = true
       break
     case 'divide':
       calcStatus.calcType = Calc.divide
@@ -159,13 +162,13 @@ const calc = (
 ): number => {
   switch (calcType) {
     case 'plus':
-      return Number(Big(firstNumber).plus(secondNumber))
+      return Number(_(firstNumber).plus(secondNumber))
     case 'minus':
-      return Number(Big(firstNumber).minus(secondNumber))
+      return Number(_(firstNumber).minus(secondNumber))
     case 'times':
-      return Number(Big(firstNumber).times(secondNumber))
+      return Number(_(firstNumber).times(secondNumber))
     case 'divide':
-      return Number(Big(firstNumber).div(secondNumber))
+      return Number(_(firstNumber).div(secondNumber))
     default:
       return 0
   }
