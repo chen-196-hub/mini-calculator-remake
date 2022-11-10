@@ -129,8 +129,12 @@ const handleCalc = (key: string): void => {
   }
 }
 const multiCalc = (): void => {
-  if (calcStatus.calcType !== "") {
-    const answer: number = calc( firstNumber.value,  Number(showNumber.show),  calcStatus.calcType)
+  if (calcStatus.calcType !== '') {
+    const answer: number = calc(
+      firstNumber.value,
+      Number(showNumber.show),
+      calcStatus.calcType
+    )
     showNumber.show = String(answer)
     firstNumber.value = answer
   }
