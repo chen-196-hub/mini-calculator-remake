@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 
-import  _ from 'big.js'
+import _ from 'big.js'
 import { Calc } from '@/enum/calc'
 
 interface ShowNumber {
