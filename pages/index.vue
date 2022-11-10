@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-
 import _ from 'big.js'
 import { Calc } from '@/enum/calc'
 
@@ -95,18 +94,22 @@ const handleCalc = (key: string): void => {
       calcStatus.isCalc = true
       break
     case 'divide':
+      multiCalc()
       calcStatus.calcType = Calc.divide
       saveFirstNumber()
       break
     case 'times':
+      multiCalc()
       calcStatus.calcType = Calc.times
       saveFirstNumber()
       break
     case 'minus':
+      multiCalc()
       calcStatus.calcType = Calc.minus
       saveFirstNumber()
       break
     case 'plus':
+      multiCalc()
       calcStatus.calcType = Calc.plus
       saveFirstNumber()
       break
@@ -123,6 +126,13 @@ const handleCalc = (key: string): void => {
     }
     default:
       break
+  }
+}
+const multiCalc = (): void => {
+  if (calcStatus.calcType !== "") {
+    const answer: number = calc( firstNumber.value,  Number(showNumber.show),  calcStatus.calcType)
+    showNumber.show = String(answer)
+    firstNumber.value = answer
   }
 }
 
