@@ -173,7 +173,7 @@ const calc = (
   firstNumber: number,
   secondNumber: number,
   calcType: string
-): number => {
+): number | string => {
   switch (calcType) {
     case 'plus':
       return Number(_(firstNumber).plus(secondNumber))
@@ -182,6 +182,7 @@ const calc = (
     case 'times':
       return Number(_(firstNumber).times(secondNumber))
     case 'divide':
+      if (secondNumber === 0) return 'Infinity'
       return Number(_(firstNumber).div(secondNumber))
     default:
       return 0
