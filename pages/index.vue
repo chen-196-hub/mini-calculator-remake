@@ -121,7 +121,8 @@ const handleCalc = (key: string): void => {
       )
       showNumber.show = String(answer)
       calcStatus.calcType = ''
-      firstNumber.value = 0
+      // firstNumber.value = 0
+      // if( typeof answer !== 'string' ) firstNumber.value = answer
       break
     }
     default:
@@ -129,14 +130,14 @@ const handleCalc = (key: string): void => {
   }
 }
 const multiCalc = (): void => {
+  // console.log(firstNumber.value)
   if (calcStatus.calcType !== '') {
-    const answer: number = calc(
+    const answer: number | string = calc(
       firstNumber.value,
       Number(showNumber.show),
       calcStatus.calcType
     )
     showNumber.show = String(answer)
-    firstNumber.value = answer
   }
 }
 
