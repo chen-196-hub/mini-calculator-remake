@@ -76,7 +76,7 @@ const handleCalc = (key: string): void => {
         showNumber.calc = ['0']
         showNumber.show = '0'
       }
-      if (calcStatus.isCalc ) {
+      if (calcStatus.isCalc) {
         showNumber.calc = ['0']
         showNumber.show = '0'
         calcStatus.isCalc = false
@@ -93,7 +93,7 @@ const handleCalc = (key: string): void => {
       }
       break
     case 'percent':
-      if( showNumber.show === 'Infinity') return
+      if (showNumber.show === 'Infinity') return
       showNumber.show = String(_(Number(showNumber.show)).div(100))
       showNumber.calc = showNumber.show.split('')
       calcStatus.isCalc = true
@@ -124,7 +124,8 @@ const handleCalc = (key: string): void => {
         Number(showNumber.show),
         calcStatus.calcType
       )
-      showNumber.show = calcStatus.calcType === '' ? showNumber.show : String(answer)
+      showNumber.show =
+        calcStatus.calcType === '' ? showNumber.show : String(answer)
       calcStatus.calcType = ''
       break
     }
