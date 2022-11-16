@@ -66,12 +66,17 @@ const handleClick = (e: string = '0') => {
 const handleCalc = (key: string): void => {
   switch (key) {
     case 'ac':
+      // TODO:計算中対策
       showNumber.calc = ['0']
       calcStatus.calcType = ''
       firstNumber.value = 0
       showNumber.show = showNumber.calc.join('')
       break
     case 'plu-min':
+      if (showNumber.show === 'Infinity') {
+        showNumber.calc = ['0']
+        showNumber.show = '0'
+      }
       if (calcStatus.isCalc) {
         showNumber.calc = ['0']
         showNumber.show = '0'
@@ -89,6 +94,7 @@ const handleCalc = (key: string): void => {
       }
       break
     case 'percent':
+      if (showNumber.show === 'Infinity') return
       showNumber.show = String(_(Number(showNumber.show)).div(100))
       showNumber.calc = showNumber.show.split('')
       calcStatus.isCalc = true
@@ -119,9 +125,9 @@ const handleCalc = (key: string): void => {
         Number(showNumber.show),
         calcStatus.calcType
       )
-      showNumber.show = String(answer)
+      showNumber.show =
+        calcStatus.calcType === '' ? showNumber.show : String(answer)
       calcStatus.calcType = ''
-      firstNumber.value = 0
       break
     }
     default:
@@ -130,13 +136,12 @@ const handleCalc = (key: string): void => {
 }
 const multiCalc = (): void => {
   if (calcStatus.calcType !== '') {
-    const answer: number = calc(
+    const answer: number | string = calc(
       firstNumber.value,
       Number(showNumber.show),
       calcStatus.calcType
     )
     showNumber.show = String(answer)
-    firstNumber.value = answer
   }
 }
 
