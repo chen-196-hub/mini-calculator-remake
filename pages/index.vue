@@ -66,6 +66,7 @@ const handleClick = (e: string = '0') => {
 const handleCalc = (key: string): void => {
   switch (key) {
     case 'ac':
+      // TODO:計算中対策
       showNumber.calc = ['0']
       calcStatus.calcType = ''
       firstNumber.value = 0
@@ -134,6 +135,8 @@ const handleCalc = (key: string): void => {
   }
 }
 const multiCalc = (): void => {
+  // console.log(firstNumber.value)
+  // console.log( Number(showNumber.show))
   if (calcStatus.calcType !== '') {
     const answer: number | string = calc(
       firstNumber.value,
@@ -141,6 +144,7 @@ const multiCalc = (): void => {
       calcStatus.calcType
     )
     showNumber.show = String(answer)
+    // firstNumber.value = Number(answer)
   }
 }
 
