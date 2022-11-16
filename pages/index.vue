@@ -135,8 +135,6 @@ const handleCalc = (key: string): void => {
   }
 }
 const multiCalc = (): void => {
-  // console.log(firstNumber.value)
-  // console.log( Number(showNumber.show))
   if (calcStatus.calcType !== '') {
     const answer: number | string = calc(
       firstNumber.value,
@@ -144,7 +142,6 @@ const multiCalc = (): void => {
       calcStatus.calcType
     )
     showNumber.show = String(answer)
-    // firstNumber.value = Number(answer)
   }
 }
 
