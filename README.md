@@ -25,5 +25,7 @@ https://github.com/chen-196-hub/mini-calculator
 
 ### 機能拡張
 
+2019年の電卓にない機能
+
 - % 計算
 - ± 計算
